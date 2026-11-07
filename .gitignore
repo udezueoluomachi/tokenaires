@@ -9,3 +9,5 @@ CODEX.md
 .openai/
 setup.sh
 AGENT.md
+pnpm-workspace.yaml
+

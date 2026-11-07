@@ -50,6 +50,7 @@ Everything is read locally. Text logs are read line by line, and only lines that
 - **Copilot CLI:** the `assistant_usage_events` table in `~/.copilot/session-store.db` (`COPILOT_HOME` moves it), one row per request including compaction. Cached tokens are split out of input. The per session totals written at shutdown are skipped, because they add up across resumes.
 - **Kilo Code:** `kilo.db` and channel databases in `$XDG_DATA_HOME/kilo` (default `~/.local/share/kilo`), which use the OpenCode layout, plus a database named by `KILO_DB`. Sessions Kilo imported from its old extension carry zero usage and are skipped.
 - **ZCode:** every `model-io-sess_*.jsonl` rollout file under `cli/rollout` in each ZCode config folder. The folders are `$ZCODE_CONFIG_DIR` when set (a list separated by commas or the path separator, `~` allowed), otherwise `~/.zcode`, `~/.config/zcode` and `$XDG_CONFIG_HOME/zcode`. On Windows the ZCode homes inside WSL distros are read too. Each rollout line is one model API call with the usage under `response.usage`; retried requests repeat the request id with a higher attempt number and only the final attempt is kept, lines without a usage block or with zero usage are skipped, and no request or response payload text is stored. Cached tokens are split out of input, and thinking tokens count as output only when the reported total shows they were billed separately.
+- **Hermes CLI:** the `session_model_usage` table (or fallback `sessions` table and assistant messages) in `state.db` in each Hermes directory, including isolated profile databases under `profiles/*/state.db`, as well as session transcripts under `sessions` and `logs/sessions`. The directory is `$HERMES_HOME` when set (a list separated by commas or the path separator, `~` allowed), otherwise `~/.hermes` on Linux and macOS, and `%LOCALAPPDATA%\hermes` and `~/.hermes` on Windows (WSL homes are scanned on Windows as well). Cached tokens are split out of input, and reasoning tokens are counted only when separate.
 - **Cursor:** not counted. Cursor keeps per message token counts at zero in its local database and only stores context window estimates, so there is nothing exact to read.
 
 ## What is uploaded
@@ -58,8 +59,8 @@ Exactly these fields per record, and nothing else:
 
 | Field | Example |
 | --- | --- |
-| `source` | `claude-code`, `codex`, `gemini-cli`, `antigravity`, `opencode`, `kimi-code`, `qwen-code`, `copilot-cli`, `cline`, `roo-code`, `kilo-code` or `zcode` |
-| `recordId` | the tool's own id for the call: the Claude message and request id, the Codex session id and line number, the Gemini session and message id, the Antigravity conversation and response id, the OpenCode or Kilo message id, the Kimi Code session, agent and line or the kimi-cli message id, a hash of the Copilot session, row and time, the Qwen message id, the Cline or Roo task and request time, or the ZCode request id |
+| `source` | `claude-code`, `codex`, `gemini-cli`, `antigravity`, `opencode`, `kimi-code`, `qwen-code`, `copilot-cli`, `cline`, `roo-code`, `kilo-code`, `zcode` or `hermes-cli` |
+| `recordId` | the tool's own id for the call: the Claude message and request id, the Codex session id and line number, the Gemini session and message id, the Antigravity conversation and response id, the OpenCode or Kilo message id, the Kimi Code session, agent and line or the kimi-cli message id, a hash of the Copilot session, row and time, the Qwen message id, the Cline or Roo task and request time, the ZCode request id, or a hash of the Hermes session, model, task and time |
 | `model` | `claude-opus-5-5` |
 | `occurredAt` | `2026-11-03T10:15:00.000Z` |
 | `inputTokens` | uncached input tokens |

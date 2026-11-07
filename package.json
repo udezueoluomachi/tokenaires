@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@tokenaires/contracts": "file:vendor/tokenaires-contracts-0.5.0.tgz",
+    "@tokenaires/contracts": "file:vendor/tokenaires-contracts-0.6.0.tgz",
     "@types/node": "^26.6.6",
     "commander": "^15.0.0",
     "eslint": "^10.14.0",

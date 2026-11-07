@@ -101,3 +101,25 @@ export function kiloDbOverride(env: NodeJS.ProcessEnv, home: string): string | n
   const path = expandHome(configured, home);
   return isAbsolute(path) ? path : join(kiloDataDir(env, home), path);
 }
+
+export function hermesHome(env: NodeJS.ProcessEnv, home: string, platform: NodeJS.Platform = process.platform): string {
+  const configured = readEnv(env, ENV_KEYS.hermesHome);
+  if (configured) return expandHome(configured, home);
+  if (platform === 'win32') {
+    const local = readEnv(env, 'LOCALAPPDATA');
+    return local ? join(local, 'hermes') : join(home, 'AppData', 'Local', 'hermes');
+  }
+  return join(home, '.hermes');
+}
+
+export function hermesHomes(env: NodeJS.ProcessEnv, home: string, platform: NodeJS.Platform = process.platform): string[] {
+  const configured = readEnv(env, ENV_KEYS.hermesHome);
+  if (configured) return splitDirs(configured, home);
+  const primary = hermesHome(env, home, platform);
+  const dirs = [primary];
+  if (platform === 'win32') {
+    dirs.push(join(home, '.hermes'));
+  }
+  return [...new Set(dirs)];
+}
+

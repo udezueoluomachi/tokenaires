@@ -26,6 +26,7 @@ export const ENV_KEYS = {
   clineDir: 'CLINE_DIR',
   clineData: 'CLINE_DATA_DIR',
   clineSessions: 'CLINE_SESSION_DATA_DIR',
+  hermesHome: 'HERMES_HOME',
   noBrowser: 'TOKENAIRES_NO_BROWSER',
   noCache: 'TOKENAIRES_NO_CACHE',
 } as const;
@@ -81,6 +82,7 @@ export const SCHEDULE_ENV_PASSTHROUGH = [
   ENV_KEYS.clineDir,
   ENV_KEYS.clineData,
   ENV_KEYS.clineSessions,
+  ENV_KEYS.hermesHome,
   ENV_KEYS.openCodeDbPrefix,
 ] as const;
 

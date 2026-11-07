@@ -201,8 +201,8 @@ importers:
         specifier: ^10.0.1
         version: 10.0.1(eslint@10.14.0)
       '@tokenaires/contracts':
-        specifier: file:vendor/tokenaires-contracts-0.5.0.tgz
-        version: file:vendor/tokenaires-contracts-0.5.0.tgz
+        specifier: file:vendor/tokenaires-contracts-0.6.0.tgz
+        version: file:vendor/tokenaires-contracts-0.6.0.tgz
       '@types/node':
         specifier: ^26.6.6
         version: 26.6.6
@@ -725,9 +725,9 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@tokenaires/contracts@file:vendor/tokenaires-contracts-0.5.0.tgz':
-    resolution: {integrity: sha512-vc7cmJSNURx/0LmqDSHHysy/aFEWk+fvv14yhebpDKExXjrp2zG+gUZBLW3FwGCvQQAkWqANIjzfUn+d9Ih78w==, tarball: file:vendor/tokenaires-contracts-0.5.0.tgz}
-    version: 0.5.0
+  '@tokenaires/contracts@file:vendor/tokenaires-contracts-0.6.0.tgz':
+    resolution: {integrity: sha512-9UcOP9bdisaT6n6i2pfGNMVvSmrCoIJHmQfBeVzeS1tyDyJIIffoDN4NdM3Xjscicr92jwondxdkuVDRXETb4g==, tarball: file:vendor/tokenaires-contracts-0.6.0.tgz}
+    version: 0.6.0
 
   '@types/chai@5.2.3':
     resolution: {integrity: sha512-Mw558oeA9fFbv65/y4mHtXDs9bPnFMZAL/jxdPFUpOHHIXX91mcgEHbS5Lahr+pwZFR8A7GQleRWeI6cGFC2UA==}
@@ -1771,7 +1771,7 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.67.4':
     optional: true
 
-  '@tokenaires/contracts@file:vendor/tokenaires-contracts-0.5.0.tgz':
+  '@tokenaires/contracts@file:vendor/tokenaires-contracts-0.6.0.tgz':
     dependencies:
       zod: 4.6.7
 
