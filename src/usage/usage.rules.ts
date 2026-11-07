@@ -20,6 +20,7 @@ export const RECORD_ID_PATTERNS: Record<AgentSource, RegExp> = {
   'roo-code': NATIVE_RECORD_ID,
   'kilo-code': NATIVE_RECORD_ID,
   zcode: NATIVE_RECORD_ID,
+  'hermes-cli': NATIVE_RECORD_ID,
 };
 
 export const SOURCE_LAUNCH_DATES: Record<AgentSource, string> = {
@@ -35,6 +36,7 @@ export const SOURCE_LAUNCH_DATES: Record<AgentSource, string> = {
   'roo-code': '2024-10-01T00:00:00Z',
   'kilo-code': '2025-03-01T00:00:00Z',
   zcode: '2026-06-28T00:00:00Z',
+  'hermes-cli': '2024-01-01T00:00:00Z',
 };
 
 export const MODEL_RELEASE_DATES: ReadonlyArray<{
@@ -50,6 +52,8 @@ export const MODEL_RELEASE_DATES: ReadonlyArray<{
   { prefix: 'gpt-5-codex', releasedAt: '2025-09-13T00:00:00Z' },
   { prefix: 'glm-5.3', releasedAt: '2026-08-12T00:00:00Z' },
   { prefix: 'glm-5.2', releasedAt: '2026-06-14T00:00:00Z' },
+  { prefix: 'nous-hermes', releasedAt: '2024-01-01T00:00:00Z' },
+  { prefix: 'hermes', releasedAt: '2024-01-01T00:00:00Z' },
 ];
 
 export const PLAUSIBILITY = {

@@ -13,6 +13,7 @@ export const AGENT_SOURCES = [
   'roo-code',
   'kilo-code',
   'zcode',
+  'hermes-cli',
 ] as const;
 
 export const AgentSourceSchema = z.enum(AGENT_SOURCES);
@@ -31,4 +32,5 @@ export const AGENT_SOURCE_LABELS: Record<AgentSource, string> = {
   'roo-code': 'Roo Code',
   'kilo-code': 'Kilo Code',
   zcode: 'ZCode',
+  'hermes-cli': 'Hermes CLI',
 };
