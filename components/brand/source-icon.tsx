@@ -32,6 +32,7 @@ const ICONS: Record<AgentSource, IconType> = {
   "roo-code": lettermark("R"),
   "kilo-code": lettermark("K"),
   zcode: lettermark("Z"),
+  "hermes-cli": lettermark("H"),
 };
 
 const TINTS: Record<AgentSource, string> = {
@@ -47,6 +48,7 @@ const TINTS: Record<AgentSource, string> = {
   "roo-code": "text-t2",
   "kilo-code": "text-t2",
   zcode: "text-t2",
+  "hermes-cli": "text-t2",
 };
 
 export function SourceIcon({ source, className }: { source: AgentSource; className?: string }) {
